@@ -9,14 +9,14 @@ USE bookstore_db;
 -- 2. Country Table
 CREATE TABLE country (
     country_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(100) NOT NULL
+    country_name VARCHAR(100) NOT NULL
 );
 
 -- 3. Address Table
 CREATE TABLE address (
     address_id INT AUTO_INCREMENT PRIMARY KEY,
-    street VARCHAR(255),
-    city VARCHAR(100),
+    street VARCHAR(255) NOT NULL,
+    city VARCHAR(100) NOT NULL,
     country_id INT,
     FOREIGN KEY (country_id) REFERENCES country(country_id)
 );
@@ -30,8 +30,8 @@ CREATE TABLE address_status (
 -- 5. Customer Table
 CREATE TABLE customer (
     customer_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL,
-    email VARCHAR(100) UNIQUE
+    customer_name VARCHAR(255) NOT NULL,
+    customer_email VARCHAR(100) UNIQUE
 );
 
 -- 6. Customer Address Table (to support multiple addresses per customer)
@@ -48,7 +48,7 @@ CREATE TABLE customer_address (
 -- 7. Publisher Table
 CREATE TABLE publisher (
     publisher_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
+    publisher_name VARCHAR(255) NOT NULL
 );
 
 -- 8. Book Language Table
@@ -72,7 +72,7 @@ CREATE TABLE book (
 -- 10. Author Table
 CREATE TABLE author (
     author_id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(255) NOT NULL
+    author_name VARCHAR(255) NOT NULL
 );
 
 -- 11. Book Author Table (Many-to-Many relationship between books and authors)
@@ -86,7 +86,7 @@ CREATE TABLE book_author (
 
 -- 12. Shipping Method Table
 CREATE TABLE shipping_method (
-    method_id INT AUTO_INCREMENT PRIMARY KEY,
+    shipping_method_id INT AUTO_INCREMENT PRIMARY KEY,
     method_name VARCHAR(100) NOT NULL
 );
 
@@ -104,7 +104,7 @@ CREATE TABLE cust_order (
     status_id INT,
     order_date DATE,
     FOREIGN KEY (customer_id) REFERENCES customer(customer_id),
-    FOREIGN KEY (shipping_method_id) REFERENCES shipping_method(method_id),
+    FOREIGN KEY (shipping_method_id) REFERENCES shipping_method(shipping_method_id),
     FOREIGN KEY (status_id) REFERENCES order_status(status_id)
 );
 
