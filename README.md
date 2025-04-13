@@ -42,9 +42,10 @@ The ERD (Entity-Relationship Diagram) visually illustrates the relationships bet
 
 ![ERD](./A_diagram_depicts_a_relational_database_schema_for.png)
 
+
 ## Contributors
-- Group Leader: [Your Name]
-- Team Members: [Add your team members]
+- Group Leader: Calvin Wanyama.
+- Team Members: Nicole Akeyo, Bongani Nyawose.
 
 ## License
 This project is intended for academic use only.
